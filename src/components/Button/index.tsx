@@ -1,13 +1,20 @@
+import {
+  AnchorHTMLAttributes,
+  ButtonHTMLAttributes
+} from 'hoist-non-react-statics/node_modules/@types/react'
 import React from 'react'
 import * as S from './styles'
 
+export type ButtonTypes =
+  | AnchorHTMLAttributes<HTMLAnchorElement>
+  | ButtonHTMLAttributes<HTMLButtonElement>
+
 export type ButtonProps = {
-  children?: React.ReactNode
   size?: 'small' | 'medium' | 'large'
   fullWidth?: boolean
   icon?: React.ReactNode
-  onClick?: () => (event: React.MouseEvent<HTMLButtonElement>) => void
-}
+  as?: React.ElementType
+} & ButtonTypes
 
 const Button = ({
   children,
